@@ -1,0 +1,580 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    background-color: rgb(5, 24, 24);
+    min-height: 9vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    min-width: 100%;
+    z-index: 2;
+}
+
+
+@media screen and (max-width:450px){
+    header{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 20%;
+    }
+
+
+}
+
+
+
+@media screen and (max-width:700px) {
+    header {
+        height: 15%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    header .logo{
+        padding-right: 200px;
+        font-size: 3.5vw
+    }
+
+    header .menu a{
+        padding: 5px;
+        margin: 0;
+        font-size: 2vw;
+    }
+
+   
+}
+
+.logo{
+    padding: 40px;
+    font-size: 30px;
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+}
+
+.menu a{
+    color: aliceblue;
+    padding: 15px;
+    font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+ }
+
+.menu a:hover{
+    color: rgb(46, 170, 129);
+}
+
+/* .button{
+    display: none;
+    background-color:rgb(58, 194, 149);
+    height: 40px;
+    width: 60px;
+    border-radius: 15%;
+    margin: 10px;
+    padding: 5px;
+} */
+
+.a{
+    color: aliceblue;
+    height: 30;
+}
+
+.a:hover{
+    color: brown;
+}
+
+bi-list{
+    color: aliceblue;
+}
+
+.bn-x{
+    padding: 9rem;
+    background-color: rgb(20, 196, 137);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.avatar{
+    height: 25vw;
+    width: 25vw;
+}
+
+.bn-x h2{
+    margin-top: 2vw;
+    color: aliceblue;
+    font-size: 5vw;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+}
+
+.icon{
+    margin: 0;
+    display: flex;
+}
+
+.guion{
+    color: aliceblue;
+    
+}
+
+.bn-x p{
+    font-size: 2vw;
+    color: aliceblue;
+}
+
+@media screen and (max-width:700px) {
+    .bn-x p{
+        font-size: large;
+    }
+}
+
+.estrella{
+    color: aliceblue;
+}
+
+.modals{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(229, 234, 238);
+}
+
+.modals h3{
+    margin: 0;
+    font-size: 3vw;
+    text-align: center;
+    padding: 2rem;
+    color: rgb(16, 16, 82);
+}
+
+.non{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    color: rgb(14, 14, 124);
+}
+
+.article{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+}
+
+
+article{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+}
+
+
+.img{
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 15px 25px rgb(0, 0, 0,0.50);
+    transition: all 500ms ease-out;
+}
+
+.container-layer:hover .img{
+    display: none;
+}
+
+.container_layer:hover .layer{
+    position: absolute;
+    background-color: rgba(0, 206, 167, 0.801);
+    opacity:  10px;
+    z-index: 1;
+    width: 369px;
+    height: 318px;
+    border-radius: 15px;
+    transition: all 300ms ease;
+}
+
+.bi-plus{
+    position: absolute;
+    top: 0;
+    right: 120px;
+    bottom: -5px;
+    color: aliceblue;
+    margin: auto;
+    transition: all 1000ms ease;
+}
+
+.layer_icon{
+    display: none;
+}
+.container_layer:hover .layer_icon{
+  display: block;
+  transition: -900px;
+}
+
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+.modalDialog > div {
+	width: 500px;
+    height: 530px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+  -webkit-transition: opacity 400ms ease-in;
+transition: opacity 400ms ease-in;
+}
+.close {
+	color: black;
+	line-height: 25px;
+	position: absolute;
+	right: 5px;
+	text-align: center;
+	top: 3px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 12px;
+	box-shadow: 1px 1px 3px #000;
+}
+.close:hover { background: #00d9ff; }
+
+.modalDialog h2{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 20px;
+    font-size: 2vw;
+}
+
+.modalDialog p{
+    font-size: 1.5vw;
+    padding: 10px;
+}
+
+.modalDialog img{
+    border-radius: 15px;
+}
+
+.wrapper{
+    background-color: rgb(20, 196, 137);
+    min-height: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:700px) {
+    .wrapper .items{
+        flex-direction: column;
+    }   
+
+    .wrapper .items blockquote{
+        padding: 10px;
+    }
+}
+
+.items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+h3{
+    margin: auto;
+    color: aliceblue;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.items blockquote{
+    display: table-cell;
+    text-align: center;
+    font-size: 2vw;
+    margin: 0;
+    padding: 0 6rem;
+    vertical-align: middle;
+    color: aliceblue;
+}
+
+.btn{
+    margin: auto;
+    text-decoration: none;
+}
+
+.button-n{
+    border: 2px solid aliceblue;
+    min-width: 25vw;
+    min-height: 7vw;
+    background-color: rgb(20, 196, 137);
+    margin: auto;
+    border-radius: 3.9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button-n:hover{
+    transition: 250ms;
+    background-color: aliceblue;
+}
+
+.button-n:hover p{
+    transition: 250ms;
+    color: black;
+}
+
+.button-n:hover .descraga{
+    color: black;
+}
+
+.button-n p{
+    padding: 5px;
+    color: aliceblue;
+    font-size: 2vw;
+    text-align: right;
+}
+
+.descraga{
+    color: aliceblue;
+
+}
+
+form{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70vw;
+}
+
+@media screen and (max-width:700px) {
+    form .label{
+        left: 250px;
+    }
+
+    form .form-control{
+        width: 220px;
+        height: 50px;
+    }
+
+    form input .submit{
+        height: 30px;
+        width: 30px;
+    }
+}
+
+form h2{
+    color: rgb(35, 63, 90);
+    padding: 20px;
+    font-size: 5vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.form-{
+    padding-top: 3rem;
+}
+
+.form-control{
+    min-width: 100%;
+    min-height: -50%;
+    background: none;
+    color: #706c6c;
+    font-size: 2vw;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(#706c6c);
+    cursor: pointer;
+    border-bottom: 1px solid #706c6c;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.label{
+    font-size: 2vw;
+    color:  #706c6c;
+    cursor: pointer;
+    position: absolute;
+    bottom: -500;
+    left:500px;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+
+.form-control:focus + .label,
+.form-control:not(:placeholder-shown) + .label{
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: black;
+}
+
+
+.form-message{
+    color: #706c6c;
+    font-size: 1.3vw;
+    padding: .9em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #706c6c;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 3vw;
+}
+
+.submit{
+    font-size: 1.7vw;
+    background-color: rgb(20, 196, 137);
+    color: aliceblue;
+    margin: 15px;
+    padding: 10px; 
+    border: rgba(19, 218, 135, 0.541);
+    border-radius: 5px;
+    min-height: 5vw;
+    min-width: 5vw;
+    cursor: pointer;
+}
+
+footer{
+    height: 300px;
+    background-color: rgb(35, 63, 90);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 30px;
+}
+
+.footer1 h2{
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3vw;
+    padding: 5px;
+}
+
+.footer1 p{
+    color: aliceblue;
+    font-size: 1.5vw;
+    padding: 1rem;
+}
+
+
+.footer2{
+    padding: 10px;
+}
+
+.footer2 h2{
+    padding: 1rem;
+    font-size: 2.5vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: aliceblue;
+    text-align: center;
+}
+
+.port{
+    display: flex;
+    flex-direction: row;
+}
+
+figure{
+    cursor: pointer;
+    padding: 13px;
+}
+
+figure .facebook{
+    color: azure;
+}
+
+figure:hover .facebook{
+    color: black;
+}
+
+figure .twitter{
+    color: aliceblue;
+}
+
+figure:hover .twitter{
+    color: black;
+}
+
+figure .linkedin{
+    color: aliceblue;
+}
+
+figure:hover .linkedin{
+    color: black;
+}
+
+figure .dribbble{
+    color: aliceblue;
+}
+
+figure:hover .dribbble{
+    color: black;
+}
+
+.footer3 h2{
+    color: aliceblue;
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px;
+}
+
+.footer3 p{
+    color: aliceblue;
+    font-size: 2vw;
+}
+
+.footer3 a{
+    color: aquamarine;
+}
+
+.footer3 a:hover{
+    color: rgb(81, 209, 167);
+}
+
+.cuadro{
+    background-color:rgb(7, 21, 34);
+    height: 90px;
+}
+
+.cuadro p{
+    color: aliceblue;
+    text-align: center;
+    padding: 2rem;
+}
